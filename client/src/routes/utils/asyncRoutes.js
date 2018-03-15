@@ -12,6 +12,7 @@ import loadLogin from '../login/index.bundle.js'
 import loadDashboard from '../dashboard/index.bundle.js'
 
 import homeReducer from '../home/reducer'
+import dashboardReducer from '../dashboard/reducer'
 
 export const Home = (props) => {
   injectAsyncReducer(store, 'home', homeReducer)
@@ -31,7 +32,7 @@ export const Login = (props) => {
 }
 
 export const Dashboard = (props) => {
-  injectAsyncReducer(store, 'home', homeReducer)
+  injectAsyncReducer(store, 'dashboard', dashboardReducer)
   return (
     <Bundle load={loadDashboard}>
       {(Component) => <Component {...props} />}

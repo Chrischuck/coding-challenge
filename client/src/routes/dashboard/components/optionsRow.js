@@ -1,4 +1,8 @@
 import React from 'react'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import * as actions from '../actions'
 
 const styles = {
   container: {
@@ -17,20 +21,31 @@ const styles = {
     alignContent: 'center',
   }
 }
+
+const mapStateToProps = (state) => ({ home: state.home })
+const mapDispatchToProps = (dispatch) => bindActionCreators(actions, dispatch)
+
+@connect(mapStateToProps, mapDispatchToProps)
 class Row extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
       name: this.props.name,
-      value: this.props.value,
-      price: this.props.price
+      price: this.props.price,
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ name: nextProps.name, price: nextProps.price })
+  }
+
   onChange = event => {
-    console.log('asdf')
     this.setState({ [event.target.name]: event.target.value })
+  }
+
+  deleteOption = () => {
+    this.props.deleteOption({ value: this.props.value, table: this.props.table })
   }
 
   render() {
@@ -58,7 +73,7 @@ class Row extends React.Component {
           />
         </div>
         <button>{buttonText1}</button>
-        { buttonText2 && <button>{buttonText2}</button> }
+        { buttonText2 && <button onClick={this.deleteOption}>{buttonText2}</button> }
       </div>
     )
   }

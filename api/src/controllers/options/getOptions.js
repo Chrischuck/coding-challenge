@@ -8,7 +8,6 @@ const getOptions = async (req, res) => {
   .then(async (connection) => {  
     Promise.promisifyAll(connection)
     
-    
     const toppingsValues = connection.queryAsync('SELECT * FROM `toppings`;')
       .then(res => res)
       .catch(err => {
