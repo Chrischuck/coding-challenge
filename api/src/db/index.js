@@ -27,7 +27,7 @@ pool.getConnection((err, connection) => {
     if (error) throw error;
   });
 
-  connection.query('DROP TABLE IF EXISTS `admin`;', (error, results, fields) => {
+  connection.query('DROP TABLE IF EXISTS `admins`;', (error, results, fields) => {
     if (error) throw error;
   });
 
@@ -43,7 +43,7 @@ pool.getConnection((err, connection) => {
     if (error) throw error;
   });
 
-  connection.query('CREATE TABLE `admin` (`username` VARCHAR(20), `password` VARCHAR(20));', (error, results, fields) => {
+  connection.query('CREATE TABLE `admins` (`username` VARCHAR(20), `password` VARCHAR(20));', (error, results, fields) => {
     if (error) throw error;
   });
 
@@ -64,7 +64,7 @@ pool.getConnection((err, connection) => {
 
   // Would normally hash the password and store that
   const adminValues = `VALUES ('${admin.username}', '${admin.password}');`
-  connection.query('INSERT INTO `admin` (`username`, `password`) ' + adminValues, (error, results, fields) => {
+  connection.query('INSERT INTO `admins` (`username`, `password`) ' + adminValues, (error, results, fields) => {
     if (error) throw error;
   });
 

@@ -5,10 +5,13 @@ import { bindActionCreators } from 'redux';
 
 import styles from '../styles/styles.css'
 
+import { PrivateRoute, GuestRoute } from './utils/routeTypes'
+
 import {
   Home,
   NotFound,
-  Login
+  Login,
+  Dashboard
 } from './utils/asyncRoutes'
 
 
@@ -27,7 +30,8 @@ class AppRouter extends React.Component {
           <div style={{display: 'flex', flexDirection: 'column', height: '100%' }}>
             <Switch>
               <Route exact path='/' component={Home} />
-              <Route exact path='/login' component={Login} />
+              <GuestRoute exact path='/login' component={Login} auth={this.props.auth} />
+              <PrivateRoute exact path='/dashboard' component={Dashboard}  auth={this.props.auth} />
               <Route exact render={NotFound} />
             </Switch>
           </div>

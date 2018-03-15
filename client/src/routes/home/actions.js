@@ -2,8 +2,7 @@ export const sendOrder = ({ size, toppings }) => {
   return async function(dispatch) {
     try {
       dispatch(sendOrderPending())
-      console.log(size)
-      console.log(toppings)
+
       const data = await fetch(
         'http://localhost:3000/orders',
         {
@@ -31,10 +30,10 @@ export const getOptions = () => {
       dispatch(getOptionsPending())
   
       const data = await fetch('http://localhost:3000/options')
-        .then(res =>  res.json())
-        .catch(err => {
-          dispatch(getOptionsFailure(err))
-        })
+      .then(res =>  res.json())
+      .catch(err => {
+        dispatch(getOptionsFailure(err))
+      })
 
         dispatch(getOptionsSuccess(data))
     } catch (err) {

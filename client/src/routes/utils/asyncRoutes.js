@@ -1,4 +1,6 @@
 import React from 'react'
+import { Redirect } from "react-router-dom";
+
 import { injectAsyncReducer } from '../../redux/store'
 import { store } from '../../redux'
 
@@ -7,6 +9,7 @@ import Bundle from './bundle'
 import loadHome from '../home/index.bundle.js'
 import loadNotFound from '../notFound/index.bundle.js'
 import loadLogin from '../login/index.bundle.js'
+import loadDashboard from '../dashboard/index.bundle.js'
 
 import homeReducer from '../home/reducer'
 
@@ -19,14 +22,26 @@ export const Home = (props) => {
   )
 }
 
-export const Login = (props) => (
-  <Bundle load={loadLogin}>
-    {(Component) => <Component {...props} />}
-  </Bundle>
-)
+export const Login = (props) => {
+  console.log(props)
+  return (
+    <Bundle load={loadLogin}>
+      {(Component) => <Component {...props} />}
+    </Bundle>
+  )
+}
+
+export const Dashboard = (props) => {
+  return (
+    <Bundle load={loadDashboard}>
+      {(Component) => <Component {...props} />}
+    </Bundle>
+  )
+}
 
 export const NotFound = (props) => (
   <Bundle load={loadNotFound}>
     {(Component) => <Component {...props} />}
   </Bundle>
 )
+
