@@ -1,17 +1,17 @@
 export const getOptions = () => {
   return async function(dispatch) {
     try {
-      dispatch(getOptionsPending())
+      dispatch(crudOptionsPending())
   
       const data = await fetch('http://localhost:3000/options')
-      .then(res =>  res.json())
+      .then(res => res.json())
       .catch(err => {
-        dispatch(getOptionsFailure(err))
+        dispatch(crudOptionsFailure(err))
       })
 
-      dispatch(getOptionsSuccess(data))
+      dispatch(crudOptionsSuccess(data))
     } catch (err) {
-      dispatch(getOptionsFailure(err))
+      dispatch(crudOptionsFailure(err))
     }
   }
 }
@@ -29,6 +29,7 @@ export const updateOption = () => {
 export const createOption = ({ name, price, table }) => {
   return async function(dispatch) {
     try {
+      dispatch(crudOptionsPending())
 
       const data = await fetch(
         'http://localhost:3000/options/new',
@@ -46,8 +47,10 @@ export const createOption = ({ name, price, table }) => {
       )
       .then(res => res.json())
       .catch(err => {
-        dispatch(deleteOptionsFailure(err))
+        dispatch(crudOptionsFailure(err))
       })
+      
+      dispatch(crudOptionsSuccess({ [data.table]: data.data }))
 
     } catch (err) {
       
@@ -58,7 +61,7 @@ export const createOption = ({ name, price, table }) => {
 export const deleteOption = ({ value, table }) => {
   return async function(dispatch) {
     try {    
-      dispatch(deleteOptionsPending())
+      dispatch(crudOptionsPending())
 
       const data = await fetch(
         'http://localhost:3000/options',
@@ -75,12 +78,12 @@ export const deleteOption = ({ value, table }) => {
       )
       .then(res => res.json())
       .catch(err => {
-        dispatch(deleteOptionsFailure(err))
+        dispatch(crudOptionsFailure(err))
       })
 
-      dispatch(getOptionsSuccess({ [data.table]: data.data }))
+      dispatch(crudOptionsSuccess({ [data.table]: data.data }))
     } catch (err) {
-      dispatch(deleteOptionsFailure(err))
+      dispatch(crudOptionsFailure(err))
     }
   }
 }
@@ -89,6 +92,6 @@ export const getOptionsPending = () => ({ type: 'GET_DASH_PENDING' })
 export const getOptionsSuccess = (payload) => ({ type: 'GET_DASH_SUCCESS', payload })
 export const getOptionsFailure = (error) => ({ type: 'GET_DASH_FAILURE', payload: { error } })
 
-export const deleteOptionsPending = () => ({ type: 'DELETE_DASH_PENDING' })
-export const deleteOptionsSuccess = (payload) => ({ type: 'DELETE_DASH_SUCCESS', payload })
-export const deleteOptionsFailure = (error) => ({ type: 'DELETE_DASH_FAILURE', payload: { error } })
+export const crudOptionsPending = () => ({ type: 'CRUD_DASH_PENDING' })
+export const crudOptionsSuccess = (payload) => ({ type: 'CRUD_DASH_SUCCESS', payload })
+export const crudOptionsFailure = (error) => ({ type: 'CRUD_DASH_FAILURE', payload: { error } })

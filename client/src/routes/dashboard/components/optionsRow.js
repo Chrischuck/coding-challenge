@@ -52,6 +52,7 @@ class Row extends React.Component {
     const { name, price } = this.state
     const { table } = this.props
     this.props.createOption({ name, price, table })
+    this.setState({ name: '', price: '' })
   }
 
   editOption = event => {
