@@ -99,6 +99,11 @@ class Home extends React.Component {
     }
   }
 
+  sendOrder = () => {
+    const { size, toppings } = this.state
+    this.props.sendOrder({ size, toppings })
+  }
+
   calculateTotal = () => {
     const { size, toppings } = this.state
     let total = 0;
@@ -114,7 +119,7 @@ class Home extends React.Component {
 
   render() {
     const { size, toppings } = this.state
-    console.log(this.state)
+
     if (this.props.home.orderComplete) {
       return (
         <div style={style.container}>
@@ -165,7 +170,7 @@ class Home extends React.Component {
 
 
         <div style={style.options}>
-          <button onClick={this.props.sendOrder}>Order</button>
+          <button onClick={this.sendOrder}>Order</button>
         </div>
       </div>
     )

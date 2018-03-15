@@ -2,8 +2,16 @@ export const sendOrder = ({ size, toppings }) => {
   return async function(dispatch) {
     try {
       dispatch(sendOrderPending())
+      console.log(size)
+      console.log(toppings)
+      const data = await fetch(
+        'http://localhost:3000',
+        {
 
-      dispatch(sendOrderSuccess())
+        }
+      )
+      console.log(data)
+      //dispatch(sendOrderSuccess())
     } catch (err) {
       dispatch(sendOrderFailure(err))
     }

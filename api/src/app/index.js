@@ -3,8 +3,25 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import url from 'url'
 
+import pool from '../db'
+
 const PORT = 3000
 const app = express()
+
+
+pool.getConnection((err, connection) => {  
+  if (err) throw err;
+
+  connection.query('DROP TABLE IF EXISTS `toppings`;', (error, results, fields) => {
+    if (error) throw error;
+  });
+
+  connection.query('CREATE TABLE `toppings` (`name` VARCHAR(20), `value` VARCHAR(20), `price` DECIMAL(13,2));', (error, results, fields) => {
+    if (error) throw error;
+  });
+
+  connection.release();
+});
 
 app.use(bodyParser.json())
 app.use(cors())

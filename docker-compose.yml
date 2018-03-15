@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: "db"
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "hunter2"
+      MYSQL_ROOT_PASSWORD: hunter2
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
