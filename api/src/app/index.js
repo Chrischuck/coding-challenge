@@ -12,14 +12,14 @@ const app = express()
 
 const {
   getOptions,
-  createOrder
+  createOrder,
+  editOptions,
+  login
 } = actions
 
 app.use(bodyParser.json())
 app.use(cors())
 
-
-app.get('/', (req, res) => res.status(200).send('200 OK'))
 
 // Creating/getting orders
 app.get('/orders', (req, res) => res.status(200).send('200 OK'))
@@ -27,10 +27,10 @@ app.post('/orders', createOrder)
 
 // Editing/Making/Getting toppigns
 app.get('/options', getOptions)
-app.post('/options', (req, res) => res.status(200).send('200 OK'))
+app.post('/options', editOptions)
 
 // AUTH for admin
-app.post('/login', (req, res) => res.status(200).send('200 OK'))
+app.post('/login', login)
 
 
 app.listen(PORT, () => console.log(`Listening at ${PORT}!`))
