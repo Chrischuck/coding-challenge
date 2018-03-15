@@ -116,7 +116,7 @@ class Home extends React.Component {
           <select value={this.state.size || ''} onChange={this.changeSize} >
 
             {
-              this.props.home.sizes.map(size => <option value={size.value}>{`${size.name} $${size.price}`}</option>)
+              this.props.home.sizes.map(size => <option id={size.value} value={size.value}>{`${size.name} $${size.price}`}</option>)
             }
           </select>
         </div>
@@ -128,7 +128,7 @@ class Home extends React.Component {
             {
               this.props.home.toppings.map(topping => (
                 <Fragment>
-                  <input type="checkbox" value={topping.value} onChange={this.changeTopping} />
+                  <input id={topping.value} type="checkbox" value={topping.value} onChange={this.changeTopping} />
                   <label>{topping.name}</label><span style={{color: '#565656'}}>{`  +$${topping.price}`}</span><br/>
                 </Fragment>
               ))

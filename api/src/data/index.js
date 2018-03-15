@@ -6,7 +6,7 @@ export const toppings = [
   },
   {
     name: 'Mushrooms',
-    value: 'MUSHRROMS',
+    value: 'MUSHROOMS',
     price: 1.25
   },
   {
