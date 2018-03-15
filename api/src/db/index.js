@@ -23,6 +23,10 @@ pool.getConnection((err, connection) => {
     if (error) throw error;
   });
 
+  connection.query('DROP TABLE IF EXISTS `orders`;', (error, results, fields) => {
+    if (error) throw error;
+  });
+
   connection.query('DROP TABLE IF EXISTS `admin`;', (error, results, fields) => {
     if (error) throw error;
   });
@@ -32,6 +36,10 @@ pool.getConnection((err, connection) => {
   });
 
   connection.query('CREATE TABLE `sizes` (`name` VARCHAR(20), `value` VARCHAR(20), `price` DECIMAL(13,2));', (error, results, fields) => {
+    if (error) throw error;
+  });
+
+  connection.query('CREATE TABLE `orders` (`size` VARCHAR(20), `toppings` JSON);', (error, results, fields) => {
     if (error) throw error;
   });
 
