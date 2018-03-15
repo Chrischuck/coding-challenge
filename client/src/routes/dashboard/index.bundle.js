@@ -49,6 +49,7 @@ class Dashboard extends React.Component {
                 name=''
                 value=''
                 price=''
+                table='sizes'
                 buttonText1={'create'} 
               />
             </div>
@@ -63,6 +64,7 @@ class Dashboard extends React.Component {
                 name=''
                 value=''
                 price=''
+                table='toppings'
                 buttonText1={'create'} 
               />
             </div>

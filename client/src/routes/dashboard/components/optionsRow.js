@@ -48,6 +48,19 @@ class Row extends React.Component {
     this.props.deleteOption({ value: this.props.value, table: this.props.table })
   }
 
+  createOption = event => {
+    const { name, price } = this.state
+    const { table } = this.props
+    this.props.createOption({ name, price, table })
+  }
+
+  editOption = event => {
+    const { name, price } = this.state
+    const { table, value } = this.props
+    this.props.createOption({ name, price, value, table })
+  }
+
+
   render() {
     const { name, price, value, onClick, buttonText1, buttonText2 } = this.props
     return (
@@ -71,8 +84,10 @@ class Row extends React.Component {
             type='number'
             onChange={this.onChange}
           />
-        </div>
-        <button>{buttonText1}</button>
+        </div> 
+    
+          <button onClick={buttonText1 === 'update' ? this.editOption : this.createOption}>{buttonText1}</button> :
+    
         { buttonText2 && <button onClick={this.deleteOption}>{buttonText2}</button> }
       </div>
     )

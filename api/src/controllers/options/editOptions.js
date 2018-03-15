@@ -4,7 +4,7 @@ import Promise from 'bluebird'
 const editOptions = async (req, res) => {
 
 
-  res.status(200).send(JSON.stringify({ toppings, sizes }))
+  res.status(200).send(JSON.stringify({ }))
 
 }
 

@@ -14,13 +14,12 @@ const deleteOptions = async (req, res) => {
         throw err
       })
 
-    let d = await connection.queryAsync('SELECT * FROM `' + table + '`;')
+    const d = await connection.queryAsync('SELECT * FROM `' + table + '`;')
       .then(res => res)
       .catch(err => {
         throw err
       })
     
-    console.log(d)
     connection.release();
 
     return d

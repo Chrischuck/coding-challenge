@@ -26,9 +26,28 @@ export const updateOption = () => {
   }
 }
 
-export const createOption = () => {
+export const createOption = ({ name, price, table }) => {
   return async function(dispatch) {
     try {
+
+      const data = await fetch(
+        'http://localhost:3000/options/new',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name,
+            price,
+            table
+          })
+        }
+      )
+      .then(res => res.json())
+      .catch(err => {
+        dispatch(deleteOptionsFailure(err))
+      })
 
     } catch (err) {
       
@@ -38,8 +57,7 @@ export const createOption = () => {
 
 export const deleteOption = ({ value, table }) => {
   return async function(dispatch) {
-    try {
-      
+    try {    
       dispatch(deleteOptionsPending())
 
       const data = await fetch(
