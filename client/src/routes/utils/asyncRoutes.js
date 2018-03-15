@@ -23,7 +23,6 @@ export const Home = (props) => {
 }
 
 export const Login = (props) => {
-  console.log(props)
   return (
     <Bundle load={loadLogin}>
       {(Component) => <Component {...props} />}
@@ -32,6 +31,7 @@ export const Login = (props) => {
 }
 
 export const Dashboard = (props) => {
+  injectAsyncReducer(store, 'home', homeReducer)
   return (
     <Bundle load={loadDashboard}>
       {(Component) => <Component {...props} />}

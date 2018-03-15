@@ -2,6 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import * as optionsActions from '../home/actions'
+import * as dashboardOptions from './actions'
+
 const style = {
   container: {
     display: 'flex',
@@ -13,8 +16,8 @@ const style = {
   }
 }
 
-const mapStateToProps = (state) => ({ auth: state.auth })
-const mapDispatchToProps = (dispatch) => bindActionCreators({}, dispatch)
+const mapStateToProps = (state) => ({ home: state.home })
+const mapDispatchToProps = (dispatch) => bindActionCreators({ ...optionsActions, ...dashboardOptions }, dispatch)
 
 @connect(mapStateToProps, mapDispatchToProps)
 class Dashboard extends React.Component {
@@ -22,7 +25,19 @@ class Dashboard extends React.Component {
     super(props)
     
     this.state = {
-   
+      sizes: [],
+      toppings: [],
+    }
+  }
+
+  componentWillMount() {
+    this.props.getOptions()
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { sizes, toppings } = nextProps.home
+    if (this.state.sizes.length === 0 || this.state.toppings.length === 0) {
+      this.setState({ sizes, toppings })
     }
   }
 
