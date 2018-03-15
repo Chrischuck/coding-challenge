@@ -7,21 +7,43 @@ import * as actions from './actions'
 const Fragment = React.Fragment
 
 const toppingData = [
-  {
+  { 
+    name: 'Cheese',
     value: 'CHEESE',
     price: 1.25
   },
   {
+    name: 'Mushrooms',
     value: 'MUSHRROMS',
     price: 1.25
   },
   {
+    name: 'Pepperoni',
     value: 'PEPPERONI',
     price: 1.00
   },
   {
+    name: 'Bell Peppers',
     value: 'BELL_PEPPERS',
     price: 2.00
+  }
+]
+
+const sizes = [
+  { 
+    name: 'Small',
+    value: 'SMALL',
+    price: 10.00
+  },
+  {
+    name: 'Medium',
+    value: 'MEDIUM',
+    price: 12.00
+  },
+  {
+    name: 'Large',
+    value: 'LARGE',
+    price: 15.00
   }
 ]
 
@@ -51,12 +73,13 @@ class Home extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      size: 'MEDIUM',
-      toppings: []
+      size: 'MEDIUM', // take from props
+      toppings: [],
     }
   }
 
   changeSize = event => {
+    const { size, total } = this.state
     this.setState({ size: event.target.value })
   }
 
@@ -66,7 +89,6 @@ class Home extends React.Component {
 
     if (toppings.includes(topping)) {
       // prefer not to mutate original array
-      
       const newToppings = [...toppings]
       const index = newToppings.indexOf(topping)
 
@@ -77,9 +99,22 @@ class Home extends React.Component {
     }
   }
 
+  calculateTotal = () => {
+    const { size, toppings } = this.state
+    let total = 0;
+
+    const filteredSizes = sizes.filter(s => s.value === size)
+    const filteredToppigns = toppingData.filter(t => toppings.includes(t.value))
+
+    total += filteredSizes[0].price
+    filteredToppigns.forEach(t => total += t.price)
+
+    return total
+  }
+
   render() {
     const { size, toppings } = this.state
-
+    console.log(this.state)
     if (this.props.home.orderComplete) {
       return (
         <div style={style.container}>
@@ -99,10 +134,11 @@ class Home extends React.Component {
 
         <div style={style.options}>
           <h3>Select Size</h3>
-          <select value={size} onChange={this.changeSize} >
-            <option value='SMALL'>Small</option>
-            <option value='MEDIUM'>Medium</option>
-            <option value='LARGE'>Large</option>
+          <select value={this.state.size} onChange={this.changeSize} >
+
+            {
+              sizes.map(size => <option value={size.value}>{`${size.name} $${size.price}`}</option>)
+            }
           </select>
         </div>
 
@@ -113,8 +149,8 @@ class Home extends React.Component {
             {
               toppingData.map(topping => (
                 <Fragment>
-                  <input type="checkbox" value="CHEESE" onChange={this.changeTopping} />
-                  <label>Cheese</label><br/>
+                  <input type="checkbox" value={topping.value} onChange={this.changeTopping} />
+                  <label>{topping.name}</label><span style={{color: '#565656'}}>{`  +$${topping.price}`}</span><br/>
                 </Fragment>
               ))
             }
@@ -124,7 +160,7 @@ class Home extends React.Component {
 
         <div style={style.options}>
           <h3 style={{marginBottom: '5px'}}>Total Price</h3>
-          <h4 style={{marginTop: '0px'}}>$200</h4>
+          <h4 style={{marginTop: '0px'}}>{ '$' + this.calculateTotal() }</h4>
         </div>
 
 
