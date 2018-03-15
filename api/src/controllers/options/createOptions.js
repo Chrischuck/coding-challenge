@@ -19,7 +19,7 @@ const createOptions = async (req, res) => {
         throw err
       })
 
-    const values = `VALUES ('${name}', '${value}', ${price});`
+    const values = `VALUES ('${name}', '${value}', ${price || 0});`
     const  insert = await connection.queryAsync('INSERT INTO `' + table + '` (`name`, `value`, `price`) ' + values)
       .then(res => res)
       .catch(err => {

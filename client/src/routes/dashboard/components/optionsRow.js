@@ -55,10 +55,10 @@ class Row extends React.Component {
     this.setState({ name: '', price: '' })
   }
 
-  editOption = event => {
+  updateOption = event => {
     const { name, price } = this.state
     const { table, value } = this.props
-    this.props.createOption({ name, price, value, table })
+    this.props.updateOption({ name, price, value, table })
   }
 
 
@@ -87,7 +87,7 @@ class Row extends React.Component {
           />
         </div> 
     
-          <button onClick={buttonText1 === 'update' ? this.editOption : this.createOption}>{buttonText1}</button> :
+          <button onClick={buttonText1 === 'update' ? this.updateOption : this.createOption}>{buttonText1}</button> :
     
         { buttonText2 && <button onClick={this.deleteOption}>{buttonText2}</button> }
       </div>

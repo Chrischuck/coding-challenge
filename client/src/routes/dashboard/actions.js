@@ -16,12 +16,34 @@ export const getOptions = () => {
   }
 }
 
-export const updateOption = () => {
+export const updateOption = ({ name, price, value, table }) => {
   return async function(dispatch) {
     try {
+      dispatch(crudOptionsPending())
 
-    } catch (err) {
+      const data = await fetch(
+        'http://localhost:3000/options/edit',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name,
+            price,
+            value,
+            table
+          })
+        }
+      )
+      .then(res => res.json())
+      .catch(err => {
+        dispatch(crudOptionsFailure(err))
+      })
       
+      dispatch(crudOptionsSuccess({ [data.table]: data.data }))
+    } catch (err) {
+      dispatch(crudOptionsFailure(err))
     }
   }
 }
@@ -53,7 +75,7 @@ export const createOption = ({ name, price, table }) => {
       dispatch(crudOptionsSuccess({ [data.table]: data.data }))
 
     } catch (err) {
-      
+      dispatch(crudOptionsFailure(err))
     }
   }
 }

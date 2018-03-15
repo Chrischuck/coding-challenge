@@ -14,7 +14,6 @@ const style = {
     justifyContent: 'center',
     alignContent: 'center',
     alignItems: 'center',
-    height: '50%',
     flexDirection: 'column',
   },
   options: {
