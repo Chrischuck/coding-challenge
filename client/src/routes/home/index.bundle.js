@@ -79,6 +79,7 @@ class Home extends React.Component {
     if (!size) {
       return 0
     }
+
     let total = 0;
 
     const filteredSizes = this.props.home.sizes.filter(s => s.value === size)
@@ -91,21 +92,19 @@ class Home extends React.Component {
   }
 
   render() {
-    console.log(this.props.home)
     const { size, toppings } = this.state
 
-    if (this.props.home.orderComplete) {
-      return (
+    return this.props.home.orderComplete ?
+      (
         <div style={style.container}>
           <h1>
             Your Order is Now Processing!
           </h1>
           <button onClick={this.props.reorder}>Click to Order Again!</button>
-        </div>
+        </div>  
       )
-    }
-
-    return (
+      :
+      (
       <div style={style.container}>
         <h1>
           Order a Pizza
@@ -113,7 +112,7 @@ class Home extends React.Component {
 
         <div style={style.options}>
           <h3>Select Size</h3>
-          <select value={this.state.size} onChange={this.changeSize} >
+          <select value={this.state.size || ''} onChange={this.changeSize} >
 
             {
               this.props.home.sizes.map(size => <option value={size.value}>{`${size.name} $${size.price}`}</option>)

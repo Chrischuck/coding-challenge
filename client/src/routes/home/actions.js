@@ -5,9 +5,16 @@ export const sendOrder = ({ size, toppings }) => {
       console.log(size)
       console.log(toppings)
       const data = await fetch(
-        'http://localhost:3000',
+        'http://localhost:3000/orders',
         {
-
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            size,
+            toppings
+          })
         }
       )
       console.log(data)

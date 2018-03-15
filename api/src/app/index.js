@@ -11,7 +11,8 @@ const PORT = 3000
 const app = express()
 
 const {
-  getOptions
+  getOptions,
+  createOrder
 } = actions
 
 app.use(bodyParser.json())
@@ -21,8 +22,8 @@ app.use(cors())
 app.get('/', (req, res) => res.status(200).send('200 OK'))
 
 // Creating/getting orders
-app.get('/order', (req, res) => res.status(200).send('200 OK'))
-app.post('/order', (req, res) => res.status(200).send('200 OK'))
+app.get('/orders', (req, res) => res.status(200).send('200 OK'))
+app.post('/orders', createOrder)
 
 // Editing/Making/Getting toppigns
 app.get('/options', getOptions)
