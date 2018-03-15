@@ -1,4 +1,5 @@
 import mysql from 'mysql'
+import Promise from 'bluebird'
 
 import { toppings, sizes, admin } from '../data'
 
@@ -8,6 +9,7 @@ const pool  = mysql.createPool({
   password: 'hunter2',
   database: 'db',
 })
+Promise.promisifyAll(pool)
 
 // Initialize tables and insert default data
 pool.getConnection((err, connection) => {  
