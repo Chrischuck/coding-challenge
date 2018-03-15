@@ -1,0 +1,13 @@
+CACHE MANIFEST
+#ver:3/15/2018, 4:20:44 PM
+#plugin:4.8.4
+
+CACHE:
+../0.bundle.js
+../1.bundle.js
+../vendor.bundle.js
+../
+../styles.css
+
+NETWORK:
+*
