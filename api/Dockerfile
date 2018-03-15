@@ -1,0 +1,13 @@
+FROM node:8.10.0-alpine
+
+ADD . /code
+WORKDIR /code
+
+ADD package.json .
+
+RUN npm install forever -g
+RUN npm install
+
+COPY . .
+
+CMD ["forever", "index.js"]

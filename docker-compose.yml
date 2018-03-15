@@ -1,6 +1,23 @@
 version: '3.3'
 
 services:
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    image: client
+    command: node server.js
+    ports:
+      - '8080:8080'
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    image: api
+    command: bash -c "forever --watch src/index.js"
+    ports:
+      - '3000:3000'
+services:
   db:
     image: mysql:5.7
     restart: always
