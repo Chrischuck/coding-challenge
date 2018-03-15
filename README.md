@@ -5,19 +5,19 @@ Written using React, Express, and Mysql!
 A simple pizza ordering site w/ an admin dashboard.
 
 
-## Downloading and Running
+## Installation and Running
 Requires Docker and docker-compose for the cleanest experience
 
-Clone from git
+Clone from git  
 `git clone https://github.com/Chrischuck/coding-challenge.git`
 
-cd into folder
+cd into folder  
 `cd {path}/coding-challenge`
 
-Build images
+Build images  
 `docker-compose build`
 
-Run
+Run  
 `docker-compose up`
 
 Client will be on localhost:8080
