@@ -6,7 +6,6 @@ import url from 'url'
 import actions from '../controllers'
 
 import pool from '../db'
-import { deleteOption } from '../../../client/src/routes/dashboard/actions';
 
 const PORT = 3000
 const app = express()

@@ -4,7 +4,7 @@ import Promise from 'bluebird'
 import { toppings, sizes, admin } from '../data'
 
 const pool  = mysql.createPool({
-  host: '127.0.0.1',
+  host: 'db',
   user: 'user',
   password: 'hunter2',
   database: 'db',
