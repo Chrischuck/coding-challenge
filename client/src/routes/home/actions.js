@@ -18,7 +18,30 @@ export const sendOrder = ({ size, toppings }) => {
   }
 }
 
+export const getOptions = () => {
+  return async function(dispatch) {
+    try {
+      dispatch(getOptionsPending())
+  
+      const data = await fetch('http://localhost:3000/options')
+        .then(res =>  res.json())
+        .catch(err => {
+          dispatch(getOptionsFailure(err))
+        })
+
+        dispatch(getOptionsSuccess(data))
+    } catch (err) {
+      dispatch(getOptionsFailure(err))
+    }
+  }
+}
+
+
 export const reorder = () => ({ type: 'REORDER' })
+
+export const getOptionsPending = () => ({ type: 'GET_OPTIONS_PENDING' })
+export const getOptionsSuccess = (payload) => ({ type: 'GET_OPTIONS_SUCCESS', payload })
+export const getOptionsFailure = (error) => ({ type: 'GET_OPTIONS_FAILURE', payload: { error } })
 
 export const sendOrderPending = () => ({ type: 'SEND_ORDER_PENDING' })
 export const sendOrderSuccess = () => ({ type: 'SEND_ORDER_SUCCESS' })

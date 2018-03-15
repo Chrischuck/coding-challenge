@@ -29,7 +29,7 @@ const getOptions = async (req, res) => {
       throw err
     })
 
-  res.status(200).send({ toppings, sizes })
+  res.status(200).send(JSON.stringify({ toppings, sizes }))
 
 }
 
