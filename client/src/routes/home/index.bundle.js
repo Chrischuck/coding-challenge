@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Link } from 'react-router-dom'
 
 import * as actions from './actions'
 
@@ -8,6 +9,7 @@ const Fragment = React.Fragment
 
 const style = {
   container: {
+    marginTop: '10%',
     display: 'flex',
     justifyContent: 'center',
     alignContent: 'center',
@@ -106,10 +108,10 @@ class Home extends React.Component {
       :
       (
       <div style={style.container}>
-        <h1>
+        <h1 style={{marginBottom: '5px'}}>
           Order a Pizza
         </h1>
-
+        <Link to='/login' style={{marginBottom: '25px'}}>Or login as Admin </Link>
         <div style={style.options}>
           <h3>Select Size</h3>
           <select value={this.state.size || ''} onChange={this.changeSize} >

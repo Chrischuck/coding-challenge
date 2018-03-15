@@ -7,7 +7,8 @@ import styles from '../styles/styles.css'
 
 import {
   Home,
-  NotFound
+  NotFound,
+  Login
 } from './utils/asyncRoutes'
 
 
@@ -26,6 +27,7 @@ class AppRouter extends React.Component {
           <div style={{display: 'flex', flexDirection: 'column', height: '100%' }}>
             <Switch>
               <Route exact path='/' component={Home} />
+              <Route exact path='/login' component={Login} />
               <Route exact render={NotFound} />
             </Switch>
           </div>

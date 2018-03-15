@@ -61,6 +61,8 @@ pool.getConnection((err, connection) => {
     });
   });
 
+
+  // Would normally hash the password and store that
   const adminValues = `VALUES ('${admin.username}', '${admin.password}');`
   connection.query('INSERT INTO `admin` (`username`, `password`) ' + adminValues, (error, results, fields) => {
     if (error) throw error;
