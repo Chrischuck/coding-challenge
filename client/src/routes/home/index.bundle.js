@@ -4,6 +4,27 @@ import { bindActionCreators } from 'redux';
 
 import * as actions from './actions'
 
+const Fragment = React.Fragment
+
+const toppingData = [
+  {
+    value: 'CHEESE',
+    price: 1.25
+  },
+  {
+    value: 'MUSHRROMS',
+    price: 1.25
+  },
+  {
+    value: 'PEPPERONI',
+    price: 1.00
+  },
+  {
+    value: 'BELL_PEPPERS',
+    price: 2.00
+  }
+]
+
 const style = {
   container: {
     display: 'flex',
@@ -89,14 +110,14 @@ class Home extends React.Component {
           <h3>Select Toppings</h3>
 
           <form >
-            <input type="checkbox" value="CHEESE" onChange={this.changeTopping} />
-            <label>Cheese</label><br/>
-
-            <input type="checkbox" value="PEPERONI" onChange={this.changeTopping} />
-            <label>Peperoni</label> <br/>
-
-            <input type="checkbox" value="BELL_PEPPERS" onChange={this.changeTopping} />
-            <label>Bell Peppers</label> <br/>
+            {
+              toppingData.map(topping => (
+                <Fragment>
+                  <input type="checkbox" value="CHEESE" onChange={this.changeTopping} />
+                  <label>Cheese</label><br/>
+                </Fragment>
+              ))
+            }
           </form>
 
         </div>

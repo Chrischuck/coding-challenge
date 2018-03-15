@@ -20,7 +20,6 @@ app.post('/order', (req, res) => res.status(200).send('200 OK'))
 app.get('/toppings', (req, res) => res.status(200).send('200 OK'))
 app.post('/toppings', (req, res) => res.status(200).send('200 OK'))
 
-
 // AUTH for admin
 app.post('/login', (req, res) => res.status(200).send('200 OK'))
 
