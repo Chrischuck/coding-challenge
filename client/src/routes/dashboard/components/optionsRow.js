@@ -63,13 +63,14 @@ class Row extends React.Component {
 
 
   render() {
-    const { name, price, value, onClick, buttonText1, buttonText2 } = this.props
+    const { buttonText1, buttonText2 } = this.props
     return (
       <div style={styles.container}>
         <div style={{...styles.row, flex: 2}}>
           <input
             style={{width: '80%'}}
             name='name'
+            id='name'
             placeholder='Name'
             value={this.state.name}
             onChange={this.onChange}
@@ -80,6 +81,7 @@ class Row extends React.Component {
           <input
             style={{width: '80%'}}
             name='price'
+            id='price'
             placeholder='Price'
             value={this.state.price}
             type='number'

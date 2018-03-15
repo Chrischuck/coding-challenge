@@ -16,8 +16,8 @@ export const sendOrder = ({ size, toppings }) => {
           })
         }
       )
-      console.log(data)
-      //dispatch(sendOrderSuccess())
+
+      dispatch(sendOrderSuccess())
     } catch (err) {
       dispatch(sendOrderFailure(err))
     }
