@@ -40,6 +40,6 @@ export const sizes = [
 ]
 
 export const admin = {
-  user: 'user',
+  username: 'user',
   password: 'hunter2'
 }
