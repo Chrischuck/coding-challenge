@@ -89,7 +89,7 @@ class Row extends React.Component {
           />
         </div> 
     
-          <button onClick={buttonText1 === 'update' ? this.updateOption : this.createOption}>{buttonText1}</button> :
+          <button onClick={buttonText1 === 'update' ? this.updateOption : this.createOption}>{buttonText1}</button>
     
         { buttonText2 && <button onClick={this.deleteOption}>{buttonText2}</button> }
       </div>
