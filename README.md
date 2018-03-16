@@ -7,10 +7,12 @@ A simple pizza ordering site where users can choose a pizza size and add topping
 
 ## UI
 <p align="center">
-  <img  src='https://github.com/Chrischuck/coding-challenge/blob/master/public/1.png' height='400' width='400'>
-  <img src='https://github.com/Chrischuck/coding-challenge/blob/master/public/2.png' height='400' width='400'>
+  <img  src='https://github.com/Chrischuck/coding-challenge/blob/master/public/1.png' height='450' width='460'>
+  <img src='https://github.com/Chrischuck/coding-challenge/blob/master/public/2.png' height='450' width='460'>
 </p>
-
+<p align="center">
+  Order page on left, admin dashboard on right.
+</p>
 ## Installation and Running
 Requires Docker and docker-compose for the cleanest experience
 
