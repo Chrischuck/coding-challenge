@@ -1,6 +1,6 @@
 # Airsera Coding Challenge 
 
-Written using React, Express, and Mysql!
+Written using React, Express, Mysql, Yerba Mate, and love! 🚿 
 
 A simple pizza ordering site where users can choose a pizza size and add toppings. On top of this, there is an admin dashboard where the admins can create, edit, or delete their pizza options.
 
