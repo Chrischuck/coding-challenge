@@ -44,10 +44,18 @@ This route is where uses can order pizza. Sizes and toppings are listed and uses
 
 The front end is built on React, Redux, React Router 4, and Redux Thunk. Routes and (some of the) reducers are loaded asyncronously. Testing is done with Jest and Enzyme. 
 
-### Front End
+### Back End
 
-The front end is built on React, Redux, React Router 4, and Redux Thunk. Routes and (some of the) reducers are loaded asyncronously. Testing is done with Jest and Enzyme. 
+The backend is a simple REST server built on express. It uses node mysql to connect to the database and it makes its connections from a pool to lower the overhead of constantly reconnecting to the database.  
 
 ### Database
 
-The database is mysql. There are 4 tables: admins, orders, sizes, and toppigns
+The database is mysql. There are 4 tables: admins, orders, sizes, and toppings. These tables don't have UUIDs for the content for simplicity. In the sizes and toppings table use the "value" column for a unique key. This value key is simply the name of the row capitalized and with spaces turned into "_" For example: "Bell Peppers" becomes "BELL_PEPPERS"
+
+The admins table is the list of people who can access the dashboard. Each row consists of two columns, username(VARCHAR(20)) and password(VARCHAR(20)). It is initially populated with 1 admin with the username: "user" and password: "hunter2"  
+
+The orders table is where orders are saved. Each row consists of two columns, size(VARCHAR(20)) and toppings(JSON). 
+
+The sizes table is where the pizza sizes are saved. Each row consists of three columns, name(VARCHAR(20)), value(VARCHAR(20)), price(DECIMAL(13,2)). It is initiall populated with 3 sizes: Small, Medium, and Large.  
+
+The toppings table is where the pizza sizes are saved. Each row consists of three columns, name(VARCHAR(20)), value(VARCHAR(20)), price(DECIMAL(13,2)). It is initiall populated with 4 sizes: Cheese, Mushrooms, Pepperoni, Bell Peppers.  
