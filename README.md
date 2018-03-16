@@ -2,7 +2,7 @@
 
 Written using React, Express, and Mysql!
 
-A simple pizza ordering site w/ an admin dashboard.
+A simple pizza ordering site where users can choose a pizza size and add toppings. On top of this, there is an admin dashboard where the admins can create, edit, or delete their pizza options.
 
 
 ## Installation and Running
@@ -38,3 +38,16 @@ This route is where uses can order pizza. Sizes and toppings are listed and uses
 `http://localhost:8080/dashboard`  
  This route is only accesable only when a user is logged in. It allows the admin to create, read, update, and delete their toppings and sizes for the pizza.
 
+## Under the hood
+
+### Front End
+
+The front end is built on React, Redux, React Router 4, and Redux Thunk. Routes and (some of the) reducers are loaded asyncronously. Testing is done with Jest and Enzyme. 
+
+### Front End
+
+The front end is built on React, Redux, React Router 4, and Redux Thunk. Routes and (some of the) reducers are loaded asyncronously. Testing is done with Jest and Enzyme. 
+
+### Database
+
+The database is mysql. There are 4 tables: admins, orders, sizes, and toppigns

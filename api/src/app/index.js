@@ -24,7 +24,6 @@ app.use(cors())
 
 
 // Creating/getting orders
-app.get('/orders', (req, res) => res.status(200).send('200 OK'))
 app.post('/orders', createOrder)
 
 // Editing/Making/Getting toppigns
