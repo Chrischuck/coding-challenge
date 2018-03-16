@@ -29,9 +29,9 @@ Requires Docker and docker-compose for the cleanest experience
 ### Run  
 `docker-compose up`
 
-Client will be on localhost:8080  
-Api will be on localhost:3000  
-Mysql database will be on localhost:3307  
+Client will be on `localhost:8080`  
+Api will be on `localhost:3000`  
+Mysql database will be on `localhost:3307`  
 
 ## Usage
 
