@@ -7,8 +7,8 @@ A simple pizza ordering site where users can choose a pizza size and add topping
 
 ## UI
 <p align="center">
-  <img  src='https://github.com/Chrischuck/coding-challenge/blob/master/public/1.png' height='400' width='380'>
-  <img src='https://github.com/Chrischuck/coding-challenge/blob/master/public/2.png' height='400' width='380'>
+  <img  src='https://github.com/Chrischuck/coding-challenge/blob/master/public/1.png' height='400' width='400'>
+  <img src='https://github.com/Chrischuck/coding-challenge/blob/master/public/2.png' height='400' width='400'>
 </p>
 
 ## Installation and Running
