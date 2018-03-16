@@ -26,6 +26,15 @@ Requires Docker and docker-compose for the cleanest experience
 ### Build images  
 `docker-compose build`
 
+### Initialize MySQL 
+`docker-compose up db`  
+
+Wait for the output  
+`Version: '5.7.21'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server`
+
+### Stop the MySQL container 
+`Ctrl+C`
+
 ### Run  
 `docker-compose up`
 
