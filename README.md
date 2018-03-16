@@ -13,6 +13,7 @@ A simple pizza ordering site where users can choose a pizza size and add topping
 <p align="center">
   Order page on left, admin dashboard on right.
 </p>
+
 ## Installation and Running
 Requires Docker and docker-compose for the cleanest experience
 
