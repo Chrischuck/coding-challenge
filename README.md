@@ -26,6 +26,10 @@ Mysql database will be on localhost:3307
 
 ## Usage
 
-Order Route  
+### Order Route  
 `http://localhost:8080/`  
-This route is where uses can order pizza. Sizes and toppings are listed and uses can mix and match and the price is displayed at the bottom. Once the order button is pressed, the user's order is sent to the backend and saved in mysql. Once this is complete, the order form will be replaced with a confirmation screen. The confirmation screen verifies the order has been made and allows the user to make another order.
+This route is where uses can order pizza. Sizes and toppings are listed and uses can mix and match and the price is displayed at the bottom. Once the order button is pressed, the user's order is sent to the backend and saved in mysql. Once this is complete, the order form will be replaced with a confirmation screen. The confirmation screen verifies the order has been made and allows the user to make another order.  
+
+### Login Route  
+`http://localhost:8080/login`  
+ 
