@@ -5,6 +5,12 @@ Written using React, Express, Mysql, Yerba Mate, and love! 🚿
 A simple pizza ordering site where users can choose a pizza size and add toppings. On top of this, there is an admin dashboard where the admins can create, edit, or delete their pizza options.
 
 
+## UI
+<p align="center">
+  <img  src='https://github.com/Chrischuck/coding-challenge/blob/master/public/1.png' height='480' width='300'>
+  <img src='https://github.com/Chrischuck/coding-challenge/blob/master/public/2.png' height='480' width='300'>
+</p>
+
 ## Installation and Running
 Requires Docker and docker-compose for the cleanest experience
 
