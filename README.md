@@ -1,4 +1,4 @@
-# Airsera Coding Challenge 
+# Coding Challenge 
 
 Written using React, Express, Mysql, Yerba Mate, and love! 🚿 
 
